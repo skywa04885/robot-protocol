@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message EmittedEvent {
+  enum Event {
+    LIDAR_INFO = 0;
+    LIDAR_SET_MODE = 1;
+    LIDAR_MODE_CHANGED = 2;
+    LIDAR_SET_STATE = 3;
+    LIDAR_STATE_CHANGED = 4; 
+  }
+
+  Event event = 1;
+  bytes content = 2;
+}

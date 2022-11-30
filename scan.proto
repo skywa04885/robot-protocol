@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+enum LidarState {
+  ACTIVE = 0;
+  INACTIVE = 1;
+}
+
+message LidarMode {
+  uint32 id = 1;
+  float usPerSample = 2;
+  float maxDistance = 3;
+  string name = 4; 
+}
+
+message LidarInfo {
+  repeated LidarMode modes = 1;
+}
+
+message LidarSetMode {
+  uint32 id = 1;
+}
+
+message LidarModeChanged {
+  uint32 id = 1;
+}
+
+message LidarSetState {
+  LidarState state = 1;
+}
+
+message LidarStateChanged {
+  LidarState state = 1;
+}
+
+message Point {
+  double i = 1;
+  double j = 2;
+}
+
+message Points {
+  repeated Point points = 1;
+}
